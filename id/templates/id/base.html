@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>身份证查询系统</title>
+
+    <!-- 用link导入css样式 -->
+    {% load static %}
+    <link href="{% static 'id/css/my_style.css' %}" type="text/css" rel="stylesheet" />
+    <script src="{% static 'id/js/get_time.js' %}" type="text/javascript"></script>
+
+</head>
+<body>
+<h1 class="center_with_color">简单的身份证查询系统</h1>
+
+{% block body %}
+{% endblock body %}
+
+{% block result %}
+{% endblock result %}
+
+{% block time %}
+{% endblock time %}
+
+</body>
+</html>

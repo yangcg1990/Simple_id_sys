@@ -1,0 +1,50 @@
+{% extends "id/base.html" %}
+
+{% block body %}
+    <form class="center" action="{% url 'id:index' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name='submit'>提交</button>
+    </form>
+
+{% endblock body %}
+
+{% block result %}
+    <div class="center">
+    {% if id_check == 'message' %}
+        <p>请输入身份证号码，提交后会在这里显示结果！</p>
+    {% endif %}
+
+    {% if id_check == 'wrong' %}
+        <p>你输入的身份证信息有误！</p>
+        <p>不要闹了，请输入正确的身份证信息！</p>
+    {% endif %}
+
+    {% if id_check != 'wrong' and id_check != 'message' %}
+        <p>身份证合法！</p>
+
+        <p>性别：{{ id_check.sex }}</p>
+        <p>年龄：{{ id_check.age.3 }}</p>
+        <p>出生日期：{{ id_check.age.0 }}年{{ id_check.age.1 }}月{{ id_check.age.2 }}日</p>
+        <p>身份证归属地：
+        {% for id_adress in id_check.adress %}
+            {{ id_adress }}
+        {% endfor %}
+        </p>
+    {% endif %}
+    </div>
+{% endblock result %}
+
+{% block time %}
+    <!-- 在html中用系统函数直接调用time()函数，不需要onclick -->
+    <script type = "text/javascript">
+        window.onload = function()
+        {
+            time();
+        }
+    </script>
+    <div class="center">
+    <div id="timeShow" class="time"></div>
+    </div>
+{% endblock time %}

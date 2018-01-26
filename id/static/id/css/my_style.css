@@ -1,0 +1,17 @@
+.center_with_color {
+    background: #f5dd5d;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.time {
+    text-align: center;
+    background: #ddffdd;
+    width: 271px;
+    border: 5px solid green;
+    padding: 1px;
+    margin: 0 auto;
+}
