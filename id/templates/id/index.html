@@ -1,6 +1,9 @@
 {% extends "id/base.html" %}
 
 {% block body %}
+    <br>
+    <br>
+    <br>
     <form class="center" action="{% url 'id:index' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
